@@ -3,11 +3,11 @@
   <title>Lyubingo blog</title>
   
   <subtitle>LYUBINGO BLOG</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/lyubingo/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://lyubingo.github.io/lyubingo/"/>
   <updated>2018-06-04T03:16:28.234Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://lyubingo.github.io/lyubingo/</id>
   
   <author>
     <name>lyubingo</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/06/04/hello-world/"/>
-    <id>http://yoursite.com/2018/06/04/hello-world/</id>
+    <link href="https://lyubingo.github.io/lyubingo/2018/06/04/hello-world/"/>
+    <id>https://lyubingo.github.io/lyubingo/2018/06/04/hello-world/</id>
     <published>2018-06-04T03:16:28.234Z</published>
     <updated>2018-06-04T03:16:28.234Z</updated>
     
