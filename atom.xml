@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lyubingo.github.io/"/>
-  <updated>2018-06-11T02:09:44.979Z</updated>
+  <updated>2018-06-11T09:01:29.516Z</updated>
   <id>https://lyubingo.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac重启之后需要做哪些事</title>
+    <link href="https://lyubingo.github.io/2018/06/11/4mac%E9%87%8D%E5%90%AF%E4%B9%8B%E5%90%8E%E9%9C%80%E8%A6%81%E5%81%9A%E5%93%AA%E4%BA%9B%E4%BA%8B/"/>
+    <id>https://lyubingo.github.io/2018/06/11/4mac重启之后需要做哪些事/</id>
+    <published>2018-06-11T08:48:12.000Z</published>
+    <updated>2018-06-11T09:01:29.516Z</updated>
+    
+    <content type="html"><![CDATA[<p>装了cleanmymac后重启了一次，然后就毛病百出，目前发现两处，要么是没有启动，要么是没有更新造成的。</p><h1 id="1-nvm"><a href="#1-nvm" class="headerlink" title="1. nvm"></a>1. nvm</h1><p>除了nvm命令，node和hexo也找不到，这种情况需要</p><blockquote><p>source ~/.bash_profile</p></blockquote><p>就好了。</p><p>然后，目前发现的第二个， redis 需要重新启动：</p><h1 id="2-redis"><a href="#2-redis" class="headerlink" title="2. redis"></a>2. redis</h1><p>当初是用brew装的， 万般大法： </p><blockquote><p>history | grep 匹配</p></blockquote><p>就可以想起来自己怎么写的了</p><p>redis配置文件在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/etc/redis.conf</span><br></pre></td></tr></table></figure></p><p>启动的命令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/redis-sever /usr/local/etc/redis.conf</span><br></pre></td></tr></table></figure></p><p>需要注意的是我端口被我改到7241了，并且设置了密码，因此本地登录要这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 7241 -a 密码</span><br></pre></td></tr></table></figure></p><p>关闭redis：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 7241 shutdown</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;装了cleanmymac后重启了一次，然后就毛病百出，目前发现两处，要么是没有启动，要么是没有更新造成的。&lt;/p&gt;
+&lt;h1 id=&quot;1-nvm&quot;&gt;&lt;a href=&quot;#1-nvm&quot; class=&quot;headerlink&quot; title=&quot;1. nvm&quot;&gt;&lt;/a&gt;1. nvm&lt;/h
+      
+    
+    </summary>
+    
+    
+      <category term="mac" scheme="https://lyubingo.github.io/tags/mac/"/>
+    
+  </entry>
   
   <entry>
     <title>mac的PHP环境原来是怎么配置的</title>
