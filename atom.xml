@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lyubingo.github.io/"/>
-  <updated>2018-06-15T08:33:46.086Z</updated>
+  <updated>2018-06-20T07:18:58.298Z</updated>
   <id>https://lyubingo.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>功能性（比如phpstorm破解）汇集于此</title>
+    <link href="https://lyubingo.github.io/2018/06/20/7%E5%8A%9F%E8%83%BD%E6%80%A7%EF%BC%88%E6%AF%94%E5%A6%82phpstorm%E7%A0%B4%E8%A7%A3%EF%BC%89%E6%B1%87%E9%9B%86%E4%BA%8E%E6%AD%A4/"/>
+    <id>https://lyubingo.github.io/2018/06/20/7功能性（比如phpstorm破解）汇集于此/</id>
+    <published>2018-06-20T07:01:39.000Z</published>
+    <updated>2018-06-20T07:18:58.298Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这里存放一些，篇幅不长，但是比较重要的东西"><a href="#这里存放一些，篇幅不长，但是比较重要的东西" class="headerlink" title="这里存放一些，篇幅不长，但是比较重要的东西"></a>这里存放一些，篇幅不长，但是比较重要的东西</h2><h3 id="1-phpstorm（2018）破解"><a href="#1-phpstorm（2018）破解" class="headerlink" title="1.phpstorm（2018）破解"></a>1.phpstorm（2018）破解</h3><p>原文链接<a href="https://blog.csdn.net/qq_26291823/article/details/80094410" target="_blank" rel="noopener">https://blog.csdn.net/qq_26291823/article/details/80094410</a></p><p>内容： 在线激活IP地址：</p><blockquote><p><a href="http://180.76.140.202:9123" target="_blank" rel="noopener">http://180.76.140.202:9123</a></p></blockquote><p>在phpstorm中在线激活即可。</p><h3 id="2-虚拟机安装。"><a href="#2-虚拟机安装。" class="headerlink" title="2. 虚拟机安装。"></a>2. 虚拟机安装。</h3><p>官网下在vbox，自己下载iso，然后根据这篇百度经验配置：</p><blockquote><p><a href="https://jingyan.baidu.com/article/4dc4084868a1e4c8d946f133.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/4dc4084868a1e4c8d946f133.html</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;这里存放一些，篇幅不长，但是比较重要的东西&quot;&gt;&lt;a href=&quot;#这里存放一些，篇幅不长，但是比较重要的东西&quot; class=&quot;headerlink&quot; title=&quot;这里存放一些，篇幅不长，但是比较重要的东西&quot;&gt;&lt;/a&gt;这里存放一些，篇幅不长，但是比较重要的东西&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="仓库" scheme="https://lyubingo.github.io/tags/%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>laravel安装Intervention Image</title>
