@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lyubingo.github.io/"/>
-  <updated>2018-06-20T07:18:58.298Z</updated>
+  <updated>2018-08-15T12:23:29.098Z</updated>
   <id>https://lyubingo.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>好久没写博客了，检讨一下</title>
+    <link href="https://lyubingo.github.io/2018/08/15/8%E5%A5%BD%E4%B9%85%E6%B2%A1%E5%86%99%E5%8D%9A%E5%AE%A2%E4%BA%86%EF%BC%8C%E6%A3%80%E8%AE%A8%E4%B8%80%E4%B8%8B/"/>
+    <id>https://lyubingo.github.io/2018/08/15/8好久没写博客了，检讨一下/</id>
+    <published>2018-08-15T12:05:57.000Z</published>
+    <updated>2018-08-15T12:23:29.098Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="好久没有写博客了"><a href="#好久没有写博客了" class="headerlink" title="好久没有写博客了"></a>好久没有写博客了</h2><h3 id="最近不好也不坏"><a href="#最近不好也不坏" class="headerlink" title="最近不好也不坏"></a>最近不好也不坏</h3><p>总的来说，算好的。因为，快要转正了，一个人扛下来，不容易。</p><p>总结起来有两个原因，一是我可以应付业务代码——也不是太难，二是也有人配合操作，比如代码、环境都是现成的，我只要在本地搭好环境就可以开始干活。</p><p>不过自己还是挺菜的，技术世界宽广无边，还是有许多不足的地方。</p><p>比如，除了写业务代码，除了curd，我还能干什么？</p><p>环境不熟，git也仅只会用，开源不关注，平常也不学习，。。</p><p>程序员这条路， 不知道还能走多久。</p><blockquote><p>希望一切都好。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;好久没有写博客了&quot;&gt;&lt;a href=&quot;#好久没有写博客了&quot; class=&quot;headerlink&quot; title=&quot;好久没有写博客了&quot;&gt;&lt;/a&gt;好久没有写博客了&lt;/h2&gt;&lt;h3 id=&quot;最近不好也不坏&quot;&gt;&lt;a href=&quot;#最近不好也不坏&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+      <category term="抱歉" scheme="https://lyubingo.github.io/tags/%E6%8A%B1%E6%AD%89/"/>
+    
+  </entry>
   
   <entry>
     <title>功能性（比如phpstorm破解）汇集于此</title>
