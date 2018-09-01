@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lyubingo.github.io/"/>
-  <updated>2018-08-18T04:14:54.357Z</updated>
+  <updated>2018-09-01T04:04:32.795Z</updated>
   <id>https://lyubingo.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在阿里云搭建了一个svn</title>
+    <link href="https://lyubingo.github.io/2018/09/01/12%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%90%AD%E5%BB%BA%E4%BA%86%E4%B8%80%E4%B8%AAsvn/"/>
+    <id>https://lyubingo.github.io/2018/09/01/12在阿里云搭建了一个svn/</id>
+    <published>2018-09-01T04:03:13.000Z</published>
+    <updated>2018-09-01T04:04:32.795Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="搭建svn"><a href="#搭建svn" class="headerlink" title="搭建svn"></a>搭建svn</h3><p>参考链接：<br><a href="https://help.aliyun.com/document_detail/52864.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/52864.html</a></p><p>没买服务，手动安装</p><blockquote><p>yum install subversion</p></blockquote><p>查看版本</p><blockquote><p>svnserve –version</p></blockquote><p>创建版本库：</p><blockquote><p>mkdir /var/svn<br>cd /var/svn<br>svnadmin create /var/svn/svnrepos</p></blockquote><p>然后 cd svnrepos ， 可以查看到这些：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Subversion目录说明：</span><br><span class="line"></span><br><span class="line">db目录：所有版本控制的数据存放文件。</span><br><span class="line">hooks目录：放置hook脚本文件的目录。</span><br><span class="line">locks目录：用来追踪存取文件库的客户端。</span><br><span class="line">format文件：是一个文本文件，里面只放了一个整数，表示当前文件库配置的版本号。</span><br><span class="line">conf目录：是这个仓库的配置文件（仓库的用户访问账号、权限等）。</span><br></pre></td></tr></table></figure></p><p>进入conf，返回如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">authz：是权限控制文件。</span><br><span class="line">passwd：是账号密码文件。</span><br><span class="line">svnserve.conf：SVN服务配置文件</span><br></pre></td></tr></table></figure></p><p>按以下步骤设置账号密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行 vi passwd。</span><br><span class="line">按 i 键进入编辑模式。</span><br><span class="line">在 [users] 块中添加用户账号和密码，格式：账号=密码，比如示例中的suzhan = redhat（注意等号两端要有一个空格）。</span><br><span class="line">按 Esc 键退出编辑模式，并输入 :wq 保存并退出。</span><br></pre></td></tr></table></figure></p><p>按以下步骤设置权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">运行 vi authz。</span><br><span class="line">按 i 键进入编辑模式。</span><br><span class="line">在末尾添加如下代码（其中，r表示读，w表示写）：</span><br><span class="line">[/]</span><br><span class="line">suzhan=rw</span><br><span class="line">按 Esc 键退出编辑模式，并输入 :wq 保存并退出。</span><br></pre></td></tr></table></figure></p><p>按以下步骤修改svnserve.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">运行命令 vi svnserve.conf。</span><br><span class="line">按 i 键进入编辑模式。</span><br><span class="line">打开以下几个注释（注意每行不能以空格开始，等号两端要有一个空格）：</span><br><span class="line">anon-access = read #匿名用户可读，您也可以设置 anon-access = none，不允许匿名用户访问。设置为 none，可以使日志日期正常显示</span><br><span class="line">auth-access = write #授权用户可写</span><br><span class="line">password-db = passwd #使用哪个文件作为账号文件</span><br><span class="line">authz-db = authz #使用哪个文件作为权限文件</span><br><span class="line">realm = /var/svn/svnrepos #认证空间名，版本库所在目录</span><br></pre></td></tr></table></figure></p><p>启动svn版本库</p><blockquote><p>svnserve -d -r /var/svn/svnrepos<br>如果 ps -ef | grep svn 可以看到进程则说明成功</p></blockquote><p>停止svn：</p><blockquote><p>killall svnserve</p></blockquote><p><strong>建议还是看原文，因为原文有图，图文并茂。</strong></p><p>在windows上checkout，使用配置好的账号密码即可，因为服务器已经配置了/var/svn/svnrepos 所以不需要填路径。</p><p>SVN默认3690端口，使用阿里云可能需要在后台配置安全组，授权对象填0.0.0.0</p><h3 id="svn忽略文件"><a href="#svn忽略文件" class="headerlink" title="svn忽略文件"></a>svn忽略文件</h3><p>参考这篇：<br><a href="https://blog.51cto.com/1929297/2050548" target="_blank" rel="noopener">https://blog.51cto.com/1929297/2050548</a></p><p>选择在svn的properties 里编辑， 选择others然后添加规则即可</p><p>实在不行，在svn commit时可以右键选择ignore</p><p>以上。</p><blockquote><p>TODO:svn的发布是怎么实现的？</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;搭建svn&quot;&gt;&lt;a href=&quot;#搭建svn&quot; class=&quot;headerlink&quot; title=&quot;搭建svn&quot;&gt;&lt;/a&gt;搭建svn&lt;/h3&gt;&lt;p&gt;参考链接：&lt;br&gt;&lt;a href=&quot;https://help.aliyun.com/document_detail/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>八月最后一周博客总结</title>
+    <link href="https://lyubingo.github.io/2018/09/01/11%E5%85%AB%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%91%A8%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/"/>
+    <id>https://lyubingo.github.io/2018/09/01/11八月最后一周博客总结/</id>
+    <published>2018-09-01T03:37:37.000Z</published>
+    <updated>2018-09-01T03:40:07.553Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="8月最后一周总结博客"><a href="#8月最后一周总结博客" class="headerlink" title="8月最后一周总结博客"></a>8月最后一周总结博客</h2><p>以后每周都写一个总结博客，日积月累，集腋成裘。</p><p>上周呢，干了一些活，总免不了要google，</p><h3 id="用SQL命令查看MySQL数据库的大小"><a href="#用SQL命令查看MySQL数据库的大小" class="headerlink" title="用SQL命令查看MySQL数据库的大小"></a>用SQL命令查看MySQL数据库的大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 进入information_schema;</span><br><span class="line">2. 查询所有数据大小</span><br><span class="line">   select concat(round(sum(data_length/1024/1024),2),&apos;MB&apos;) as data from tables;</span><br><span class="line">3. 查看指定数据库大小：</span><br><span class="line">比如查看home数据库大小：</span><br><span class="line">select concat(round(sum(dta_length/1024/1024),2)&apos;MB&apos;) as data from tables where table_schema=&apos;home&apos;;</span><br><span class="line">4.查看制定数据库的某个表的大小，比如查看数据库home中members表的大小：</span><br><span class="line">select concat(round(sum(data_length/1024/1024),2),&quot;MB&quot;) as data from tables where table_schema=&apos;home&apos; and table_name=&apos;members&apos;;</span><br></pre></td></tr></table></figure><h3 id="解决blur与click冲突"><a href="#解决blur与click冲突" class="headerlink" title="解决blur与click冲突"></a>解决blur与click冲突</h3><p>原因：JavaScript为单线程，同一事件只能处理一个事件，而blur优于click执行。blur与click冲突有两种解决方式，</p><blockquote><p>对blur事件进行延迟， 让click先执行<br>使用mousedown代替click</p></blockquote><h3 id="不要使用group-by-rand-查询随机数据"><a href="#不要使用group-by-rand-查询随机数据" class="headerlink" title="不要使用group by rand()查询随机数据"></a>不要使用group by rand()查询随机数据</h3><p>我直接写的group by rand(),可以实现，但是超级卡，因为这样写mysql每次都要重读表。</p><p>最后优化得：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM &apos;table&apos; as t1 JOIN (SELECT ROUND(RAND()*((SELECT MAX(id) FROM &apos;table&apos;)-(SELECT MIN(id) FROM &apos;table&apos;)) + SELECT MIN(id) FROM &apos;table&apos;)) AS id ) AS t2</span><br><span class="line">WHERE t1.id &gt;= t2.id</span><br><span class="line">ORDER BY t1.id LIMIT 1;</span><br></pre></td></tr></table></figure></p><p>意思大概就是取一个id大于某个id的值，如果取多个，就会连续，当然，也可以分多次取，每次取一个。<br>有其他条件在where里用and符连接即可</p><h3 id="linux查看文件大小"><a href="#linux查看文件大小" class="headerlink" title="linux查看文件大小"></a>linux查看文件大小</h3><p>查看目前所有文件系统的可用空间及其使用情形</p><blockquote><p>df -h</p></blockquote><p>查看文件或文件夹的磁盘使用空间</p><blockquote><p>du -h –max-depth=1 your_dest_dir</p></blockquote><h3 id="mysql导入大量数据"><a href="#mysql导入大量数据" class="headerlink" title="mysql导入大量数据"></a>mysql导入大量数据</h3><p>运维表示使用source命令内存太小不能成功，但是我用navicate在内存还要小一半的服务器上导入成功了</p><p>可能原理不同</p><p>大致思路是：先建立个新表，然后导入数据，然后代替</p><p>另：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Old_Password(&apos;string&apos;);</span><br><span class="line">SELECT Password(&apos;string&apos;);</span><br></pre></td></tr></table></figure></p><p>就是加密后的mysql密码了，前者是MySQL323加密</p><h3 id="xml-lt-CDATA-gt"><a href="#xml-lt-CDATA-gt" class="headerlink" title="xml &lt;![CDATA[]]&gt;"></a>xml &lt;![CDATA[]]&gt;</h3><h3 id="window软连接"><a href="#window软连接" class="headerlink" title="window软连接"></a>window软连接</h3><p>mklink /J 绝对路径 绝对路径</p><p>OK，svn搭建参看下个博客</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;8月最后一周总结博客&quot;&gt;&lt;a href=&quot;#8月最后一周总结博客&quot; class=&quot;headerlink&quot; title=&quot;8月最后一周总结博客&quot;&gt;&lt;/a&gt;8月最后一周总结博客&lt;/h2&gt;&lt;p&gt;以后每周都写一个总结博客，日积月累，集腋成裘。&lt;/p&gt;
+&lt;p&gt;上周呢，干了一
+      
+    
+    </summary>
+    
+    
+      <category term="仓库" scheme="https://lyubingo.github.io/tags/%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>再接再厉，记录一些同样重要篇幅不多的东西</title>
