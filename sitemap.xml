@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lyubingo.github.io/2019/03/20/13CentOS7-4%E5%AE%89%E8%A3%85nginx%EF%BC%8C%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85mysql5-7%EF%BC%8Cyum%E5%AE%89%E8%A3%85php7-2/</loc>
+    <loc>https://lyubingo.github.io/2019/03/20/15yum%E5%AE%89%E8%A3%85php72/</loc>
     
-    <lastmod>2019-03-20T02:55:10.791Z</lastmod>
+    <lastmod>2019-03-20T07:34:07.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lyubingo.github.io/2019/03/20/14%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85MySQL5.7/</loc>
+    
+    <lastmod>2019-03-20T07:20:30.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lyubingo.github.io/2019/03/20/13CentOs7.4%EF%BC%882019%E5%B9%B4%EF%BC%89%E5%AE%89%E8%A3%85nginx/</loc>
+    
+    <lastmod>2019-03-20T02:59:29.444Z</lastmod>
     
   </url>
   
